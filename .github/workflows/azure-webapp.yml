@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 env:
   DOTNET_VERSION: 8.0.x
@@ -38,34 +39,39 @@ jobs:
       - name: Publish API
         run: dotnet publish ${{ env.API_PROJECT }} --configuration Release --no-build --output ./publish
 
-      - name: Validate Azure deployment credentials
+      - name: Validate Azure deployment settings
         shell: pwsh
         env:
           AZURE_WEBAPP_NAME: ${{ secrets.AZURE_WEBAPP_NAME }}
-          AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         run: |
           if ([string]::IsNullOrWhiteSpace($env:AZURE_WEBAPP_NAME)) {
-            throw "Missing AZURE_WEBAPP_NAME. Add it to the production environment secrets."
+            throw "Missing AZURE_WEBAPP_NAME. Add the App Service name to the production environment secrets."
           }
 
-          if ([string]::IsNullOrWhiteSpace($env:AZURE_WEBAPP_PUBLISH_PROFILE)) {
-            throw "Missing AZURE_WEBAPP_PUBLISH_PROFILE. Add the full Azure publish-profile XML to the production environment secrets."
+          if ([string]::IsNullOrWhiteSpace($env:AZURE_CLIENT_ID)) {
+            throw "Missing AZURE_CLIENT_ID. Add the Microsoft Entra application (client) ID to the production environment secrets."
           }
 
-          try {
-            [xml]$profile = $env:AZURE_WEBAPP_PUBLISH_PROFILE
-          }
-          catch {
-            throw "AZURE_WEBAPP_PUBLISH_PROFILE is not valid XML. Download a fresh publish profile from the target App Service."
+          if ([string]::IsNullOrWhiteSpace($env:AZURE_TENANT_ID)) {
+            throw "Missing AZURE_TENANT_ID. Add the Microsoft Entra tenant ID to the production environment secrets."
           }
 
-          if ($null -eq $profile.publishData.publishProfile) {
-            throw "AZURE_WEBAPP_PUBLISH_PROFILE does not contain Azure publish profile data. Use the full downloaded XML file."
+          if ([string]::IsNullOrWhiteSpace($env:AZURE_SUBSCRIPTION_ID)) {
+            throw "Missing AZURE_SUBSCRIPTION_ID. Add the Azure subscription ID to the production environment secrets."
           }
+
+      - name: Sign in to Azure with OIDC
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ./publish

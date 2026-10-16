@@ -87,10 +87,21 @@ Serilog writes structured logs to the console, which integrates with Azure App S
    
    Add secrets through App Service settings or Key Vault references, never source files. App Service application settings are exposed to .NET configuration with `__` representing `:`. Remove `AdminPromotion__Email` after promotion and restart the app.
 3. Save settings and restart the App Service. Check `https://YOUR-APP.azurewebsites.net/health` for `Healthy`. Review **Log stream** or Azure Monitor if startup fails; missing production JWT signing keys and incomplete bootstrap-admin settings intentionally fail startup.
-4. Configure secrets for the GitHub `production` environment (or repository secrets) `AZURE_WEBAPP_NAME` (the App Service name) and `AZURE_WEBAPP_PUBLISH_PROFILE` (the complete XML file downloaded from the target App Service's **Get publish profile** action). The deployment workflow uses this publish profile directly, so it does not need a separate `azure/login` step. Do not paste the XML into workflow files or logs.
+4. Configure GitHub OIDC for the `production` environment. Create or select a Microsoft Entra app registration/service principal, add a federated credential with:
+   - **Issuer:** `https://token.actions.githubusercontent.com`
+   - **Subject:** `repo:smkk01/Bakery:environment:production`
+   - **Audience:** `api://AzureADTokenExchange`
+
+   Assign the service principal the **Website Contributor** role scoped to this App Service (`Dambo`), not the whole subscription. Add these GitHub `production` environment secrets:
+   - `AZURE_WEBAPP_NAME` = `Dambo`
+   - `AZURE_CLIENT_ID` = the Entra app registration's application (client) ID
+   - `AZURE_TENANT_ID` = the Entra directory (tenant) ID
+   - `AZURE_SUBSCRIPTION_ID` = the Azure subscription ID containing the App Service
+
+   The workflow signs in with `azure/login` using OIDC, so it does not need a publish profile or client secret. Do not enable App Service basic authentication just to obtain a publish profile.
 5. Push to `main` or run **Actions > Build and deploy Bakery API > Run workflow**. [.github/workflows/azure-webapp.yml](.github/workflows/azure-webapp.yml) restores, builds, tests, publishes the API, and deploys the publish output with `azure/webapps-deploy`.
 6. After deployment, test `/health`, `/swagger` (disabled unless enabled in settings), and the authentication endpoints. Deploy a managed database before adding multiple App Service instances or requiring durable transactional storage.
 
 #### Publish profile structure
 
-The checked-in [AzureAppService.pubxml.example](Bakery.Api/Properties/PublishProfiles/AzureAppService.pubxml.example) contains only non-secret placeholders and shows the profile shape. Replace the app name, resource group, and SCM URL for a local Visual Studio publish profile if needed. Do not add a downloaded `.PublishSettings` file or a profile containing passwords/tokens to source control. For GitHub Actions, store the actual downloaded publish-profile XML only in the protected `AZURE_WEBAPP_PUBLISH_PROFILE` repository/environment secret; the workflow deploys with that secret and does not require a credential-bearing `.pubxml` file.
+The checked-in [AzureAppService.pubxml.example](Bakery.Api/Properties/PublishProfiles/AzureAppService.pubxml.example) contains only non-secret placeholders and shows the profile shape for local Visual Studio publishing. The GitHub Actions deployment uses OIDC and does not require a downloaded `.PublishSettings` file or a credential-bearing `.pubxml` file.
