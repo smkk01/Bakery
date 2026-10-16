@@ -1,0 +1,24 @@
+[
+  {
+    "categoryId": "2ad9c782-8c73-460f-8b9b-dca65fb81156",
+    "name": "Cake A",
+    "description": "Description for Cake A",
+    "price": 20,
+    "imageUrl": "/images/cake_a.jpg",
+    "isAvailable": true,
+    "id": "bc4415f1-598f-4a2c-b6cb-58b57e203333",
+    "createdAtUtc": "2026-10-16T14:25:00.2795492Z",
+    "updatedAtUtc": "2026-10-16T14:25:00.2795496Z"
+  },
+  {
+    "categoryId": "fcbdecda-fa10-442c-be76-8c93e9375ed3",
+    "name": "Cake B",
+    "description": "Description for Cake B",
+    "price": 30,
+    "imageUrl": "/images/cake_b.jpg",
+    "isAvailable": true,
+    "id": "3a66e62c-8938-4804-8bbb-254c9bc08630",
+    "createdAtUtc": "2026-10-16T14:25:00.3089911Z",
+    "updatedAtUtc": "2026-10-16T14:25:00.3089918Z"
+  }
+]

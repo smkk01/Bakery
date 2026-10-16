@@ -1,0 +1,167 @@
+[
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000001",
+    "name": "Chocolate Fudge Cake",
+    "description": "Rich chocolate cake layered with smooth fudge frosting.",
+    "price": 28.00,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000001",
+    "createdAtUtc": "2026-10-16T14:41:37.7771653Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.7771656Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000001",
+    "name": "Vanilla Berry Cake",
+    "description": "Soft vanilla sponge layered with seasonal berries and cream.",
+    "price": 26.50,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000002",
+    "createdAtUtc": "2026-10-16T14:41:37.7978752Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.7978754Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000001",
+    "name": "Carrot Walnut Cake",
+    "description": "Spiced carrot cake with toasted walnuts and cream cheese frosting.",
+    "price": 24.00,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000003",
+    "createdAtUtc": "2026-10-16T14:41:37.8093849Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.809385Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000002",
+    "name": "Red Velvet Cupcake",
+    "description": "Velvety cocoa cupcake finished with cream cheese frosting.",
+    "price": 4.25,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000004",
+    "createdAtUtc": "2026-10-16T14:41:37.8232682Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.8232682Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000002",
+    "name": "Lemon Meringue Cupcake",
+    "description": "Bright lemon cupcake topped with toasted meringue.",
+    "price": 4.00,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000005",
+    "createdAtUtc": "2026-10-16T14:41:37.8355899Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.83559Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000002",
+    "name": "Salted Caramel Cupcake",
+    "description": "Vanilla cupcake with salted caramel buttercream.",
+    "price": 4.50,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000006",
+    "createdAtUtc": "2026-10-16T14:41:37.8502883Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.8502884Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000003",
+    "name": "Chocolate Chunk Cookie",
+    "description": "Golden cookie packed with dark chocolate chunks.",
+    "price": 2.75,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000007",
+    "createdAtUtc": "2026-10-16T14:41:37.8620266Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.8620267Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000003",
+    "name": "Oatmeal Raisin Cookie",
+    "description": "Chewy oat cookie with plump raisins and a hint of cinnamon.",
+    "price": 2.50,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000008",
+    "createdAtUtc": "2026-10-16T14:41:37.8778328Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.8778329Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000003",
+    "name": "Double Cocoa Cookie",
+    "description": "Deep cocoa cookie with chocolate chips throughout.",
+    "price": 2.75,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000009",
+    "createdAtUtc": "2026-10-16T14:41:37.8930554Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.8930554Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000004",
+    "name": "Country Sourdough",
+    "description": "Naturally leavened loaf with a crackly crust and open crumb.",
+    "price": 8.50,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000010",
+    "createdAtUtc": "2026-10-16T14:41:38.0093616Z",
+    "updatedAtUtc": "2026-10-16T14:41:38.0093623Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000004",
+    "name": "Rosemary Focaccia",
+    "description": "Olive-oil focaccia finished with rosemary and flaky salt.",
+    "price": 7.00,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000011",
+    "createdAtUtc": "2026-10-16T14:41:38.0263881Z",
+    "updatedAtUtc": "2026-10-16T14:41:38.0263881Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000004",
+    "name": "Honey Oat Loaf",
+    "description": "Tender sandwich loaf sweetened with local honey and rolled oats.",
+    "price": 6.50,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000012",
+    "createdAtUtc": "2026-10-16T14:41:38.0523978Z",
+    "updatedAtUtc": "2026-10-16T14:41:38.0523979Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000005",
+    "name": "Butter Croissant",
+    "description": "Classic laminated croissant with a delicate honeycomb crumb.",
+    "price": 3.75,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000013",
+    "createdAtUtc": "2026-10-16T14:41:38.0693284Z",
+    "updatedAtUtc": "2026-10-16T14:41:38.0693285Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000005",
+    "name": "Almond Pain au Chocolat",
+    "description": "Flaky pastry filled with chocolate and toasted almond cream.",
+    "price": 4.75,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000014",
+    "createdAtUtc": "2026-10-16T14:41:38.0859855Z",
+    "updatedAtUtc": "2026-10-16T14:41:38.0859855Z"
+  },
+  {
+    "categoryId": "10000000-0000-4000-8000-000000000005",
+    "name": "Apple Turnover",
+    "description": "Golden puff pastry filled with cinnamon-spiced apples.",
+    "price": 4.25,
+    "imageUrl": null,
+    "isAvailable": true,
+    "id": "20000000-0000-4000-8000-000000000015",
+    "createdAtUtc": "2026-10-16T14:41:38.1005793Z",
+    "updatedAtUtc": "2026-10-16T14:41:38.1005794Z"
+  }
+]

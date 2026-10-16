@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Cakes",
+    "description": "Celebration cakes and everyday slices.",
+    "id": "10000000-0000-4000-8000-000000000001",
+    "createdAtUtc": "2026-10-16T14:41:37.6841435Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.6841437Z"
+  },
+  {
+    "name": "Cupcakes",
+    "description": "Hand-frosted cupcakes baked in small batches.",
+    "id": "10000000-0000-4000-8000-000000000002",
+    "createdAtUtc": "2026-10-16T14:41:37.7103908Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.710391Z"
+  },
+  {
+    "name": "Cookies",
+    "description": "Freshly baked cookies with crisp edges and soft centers.",
+    "id": "10000000-0000-4000-8000-000000000003",
+    "createdAtUtc": "2026-10-16T14:41:37.7242971Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.7242971Z"
+  },
+  {
+    "name": "Bread",
+    "description": "Slow-fermented loaves and savory bakery breads.",
+    "id": "10000000-0000-4000-8000-000000000004",
+    "createdAtUtc": "2026-10-16T14:41:37.7368054Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.7368055Z"
+  },
+  {
+    "name": "Pastries",
+    "description": "Buttery, flaky pastries baked fresh each morning.",
+    "id": "10000000-0000-4000-8000-000000000005",
+    "createdAtUtc": "2026-10-16T14:41:37.7498149Z",
+    "updatedAtUtc": "2026-10-16T14:41:37.7498149Z"
+  }
+]

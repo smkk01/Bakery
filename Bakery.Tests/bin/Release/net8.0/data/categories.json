@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Wedding Cakes",
+    "description": "Premium wedding cakes",
+    "id": "3890f95d-12a4-4fda-af32-74b3dd2c9421",
+    "createdAtUtc": "2026-10-16T06:22:02.093985Z",
+    "updatedAtUtc": "2026-10-16T06:23:33.9859835Z"
+  },
+  {
+    "name": "White Bread",
+    "description": "Freshly baked breads and rolls",
+    "id": "0bb86740-9b4f-425c-8438-f3ca4155a3b6",
+    "createdAtUtc": "2026-10-16T07:03:23.0041399Z",
+    "updatedAtUtc": "2026-10-16T07:03:23.0041399Z"
+  }
+]

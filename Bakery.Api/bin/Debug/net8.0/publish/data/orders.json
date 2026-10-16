@@ -1,0 +1,23 @@
+[
+  {
+    "orderNumber": "BK-20261016-01E99D9BF7DF4CB9A33B24882B7437BA",
+    "customerId": "22222222-2222-2222-2222-222222222222",
+    "orderDate": "2026-10-16T07:22:12.0667085Z",
+    "status": 0,
+    "totalAmount": 37.0,
+    "items": [
+      {
+        "productId": "80c1854a-6023-4cfb-8a0e-d31627fed0e1",
+        "productName": "White Sourdough loaf",
+        "quantity": 2,
+        "unitPrice": 18.5,
+        "id": "1fa747b2-6000-44b3-9030-b70218d4b5db",
+        "createdAtUtc": "2026-10-16T07:22:12.0628521Z",
+        "updatedAtUtc": "2026-10-16T07:22:12.0628524Z"
+      }
+    ],
+    "id": "50c63634-91a6-4dde-8903-f9345520233e",
+    "createdAtUtc": "2026-10-16T07:22:12.0634145Z",
+    "updatedAtUtc": "2026-10-16T07:22:12.0634145Z"
+  }
+]

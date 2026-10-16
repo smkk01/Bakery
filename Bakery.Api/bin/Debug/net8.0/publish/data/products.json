@@ -1,0 +1,24 @@
+[
+  {
+    "categoryId": "11111111-1111-1111-1111-111111111111",
+    "name": "Sourdough loaf",
+    "description": "Slow-fermented country sourdough",
+    "price": 8.50,
+    "imageUrl": "https://example.com/sourdough.jpg",
+    "isAvailable": true,
+    "id": "3dbb8b80-b7e3-418a-99c7-eab75b2fb03d",
+    "createdAtUtc": "2026-10-16T05:03:27.5218145Z",
+    "updatedAtUtc": "2026-10-16T05:03:27.5218438Z"
+  },
+  {
+    "categoryId": "0bb86740-9b4f-425c-8438-f3ca4155a3b6",
+    "name": "White Sourdough loaf",
+    "description": "Slow-fermented country sourdough",
+    "price": 18.5,
+    "imageUrl": "https://example.com/sourdough.jpg",
+    "isAvailable": true,
+    "id": "80c1854a-6023-4cfb-8a0e-d31627fed0e1",
+    "createdAtUtc": "2026-10-16T07:04:08.4161172Z",
+    "updatedAtUtc": "2026-10-16T07:04:08.4161173Z"
+  }
+]

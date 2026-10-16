@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bakery.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Bakery.Api.Controllers.AuthController.Register(Bakery.Api.DTOs.RegisterRequest,System.Threading.CancellationToken)">
+            <summary>Registers a customer account. Public registration cannot assign the Admin role.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.AuthController.Login(Bakery.Api.DTOs.LoginRequest,System.Threading.CancellationToken)">
+            <summary>Authenticates an account and returns a JWT access token.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.CartController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>Returns a customer's cart and calculated totals.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.CartController.Add(Bakery.Api.DTOs.CartItemRequest,System.Threading.CancellationToken)">
+            <summary>
+            Adds an existing, available catalog product to a customer's cart, incrementing its quantity if present.
+            Use the product ID returned by POST /api/products or GET /api/products.
+            </summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.CartController.Update(Bakery.Api.DTOs.CartItemRequest,System.Threading.CancellationToken)">
+            <summary>Sets a product's quantity in a customer's cart.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.CartController.Remove(Bakery.Api.DTOs.RemoveCartItemRequest,System.Threading.CancellationToken)">
+            <summary>Removes a product from a customer's cart.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.CategoriesController.GetAll(System.Threading.CancellationToken)">
+            <summary>Returns all product categories.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.CategoriesController.GetById(System.Guid,System.Threading.CancellationToken)">
+            <summary>Returns a category by its identifier.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.CategoriesController.Create(Bakery.Api.DTOs.CategoryRequest,System.Threading.CancellationToken)">
+            <summary>Creates a product category.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.CategoriesController.Update(System.Guid,Bakery.Api.DTOs.CategoryRequest,System.Threading.CancellationToken)">
+            <summary>Updates an existing product category.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.CategoriesController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>Deletes a product category.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.OrdersController.Create(Bakery.Api.DTOs.CreateOrderRequest,System.Threading.CancellationToken)">
+            <summary>Creates an order from available catalog products.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.OrdersController.GetAll(System.Nullable{System.Guid},System.Threading.CancellationToken)">
+            <summary>Returns orders, optionally filtered by customer identifier.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.OrdersController.GetById(System.Guid,System.Threading.CancellationToken)">
+            <summary>Returns an order by its identifier.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.OrdersController.GetByOrderNumber(System.String,System.Threading.CancellationToken)">
+            <summary>Returns an order by its generated order number.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.ProductsController.GetAll(System.Threading.CancellationToken)">
+            <summary>Returns all bakery products.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.ProductsController.GetById(System.Guid,System.Threading.CancellationToken)">
+            <summary>Returns a product by its identifier.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.ProductsController.Create(Bakery.Api.DTOs.ProductRequest,System.Threading.CancellationToken)">
+            <summary>Creates a product in the catalog.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.ProductsController.Update(System.Guid,Bakery.Api.DTOs.ProductRequest,System.Threading.CancellationToken)">
+            <summary>Replaces the editable fields of a product.</summary>
+        </member>
+        <member name="M:Bakery.Api.Controllers.ProductsController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>Deletes a product from the catalog.</summary>
+        </member>
+    </members>
+</doc>

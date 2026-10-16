@@ -1,0 +1,272 @@
+@layer theme, base, bootstrap, components, utilities;
+
+@import "bootstrap/dist/css/bootstrap.min.css" layer(bootstrap);
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #33281f;
+  background: #fffdf9;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #fffdf9;
+}
+
+a {
+  color: inherit;
+}
+
+.brand-mark {
+  color: #653d27;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+}
+
+.hero-section {
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgb(242 206 151 / 35%), transparent 35%),
+    linear-gradient(115deg, #fff5e7, #fffaf3 60%, #f8ead8);
+}
+
+.hero-title {
+  color: #35251a;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.07;
+}
+
+.hero-art {
+  filter: drop-shadow(0 1rem 1.5rem rgb(87 56 30 / 16%));
+  transform: rotate(-9deg);
+}
+
+.eyebrow {
+  color: #94613d;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.product-card {
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #fff;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1rem 2rem rgb(63 43 28 / 12%) !important;
+}
+
+.product-image,
+.product-image-placeholder {
+  height: 13rem;
+  object-fit: cover;
+}
+
+.product-detail-image,
+.product-detail-placeholder {
+  width: 100%;
+  min-height: 20rem;
+  max-height: 34rem;
+  object-fit: cover;
+}
+
+.product-gallery-stage {
+  display: grid;
+  min-height: 20rem;
+  overflow: hidden;
+  place-items: center;
+  background: #fff5e7;
+}
+
+.product-gallery-stage .product-detail-image {
+  display: block;
+}
+
+.product-gallery-thumbnail {
+  width: 4.75rem;
+  height: 4.75rem;
+  padding: 0.2rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.product-gallery-thumbnail.is-selected {
+  border-color: #653d27;
+}
+
+.product-gallery-thumbnail img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.product-detail-placeholder {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #f4dfc5, #fff0dd);
+  font-size: 9rem;
+}
+
+.product-image-placeholder {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #f4dfc5, #fff0dd);
+  font-size: 5rem;
+}
+
+.empty-state {
+  background: #fff5e7;
+}
+
+.auth-card {
+  max-width: 34rem;
+  border-radius: 1rem;
+}
+
+.quantity-input-group {
+  width: 9rem;
+}
+
+.quantity-input-group input {
+  min-width: 3rem;
+}
+
+.quantity-input-group input::-webkit-inner-spin-button,
+.quantity-input-group input::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.quantity-input-group input[type="number"] {
+  appearance: textfield;
+}
+
+.cart-quantity-control {
+  width: 8.5rem;
+}
+
+.cart-quantity-control input[type="number"] {
+  appearance: textfield;
+}
+
+.cart-quantity-control input::-webkit-inner-spin-button,
+.cart-quantity-control input::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.cart-line-subtotal {
+  min-width: 5rem;
+  text-align: right;
+}
+
+.checkout-progress {
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+.checkout-progress-step {
+  flex: 1;
+  color: #887c72;
+  text-align: center;
+}
+
+.checkout-progress-step + .checkout-progress-step {
+  border-top: 1px solid #ded4c9;
+}
+
+.checkout-progress-label,
+.checkout-progress-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  color: inherit;
+  font-size: 0.875rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.checkout-progress-step.is-current {
+  border-color: #653d27;
+  color: #653d27;
+}
+
+.checkout-progress-step.is-current .checkout-progress-label,
+.checkout-progress-step.is-current .checkout-progress-link {
+  border-top: 2px solid #653d27;
+  font-weight: 600;
+  transform: translateY(-1px);
+}
+
+.checkout-progress-number {
+  display: inline-grid;
+  width: 1.65rem;
+  height: 1.65rem;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 0.7rem;
+}
+
+.checkout-page-heading {
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+.checkout-confirmation {
+  max-width: 48rem;
+  background: #fff5e7;
+}
+
+.confirmation-order-number {
+  color: #653d27;
+  font-size: 1.25rem;
+}
+
+.confirmation-summary {
+  max-width: 25rem;
+}
+
+.admin-tabs .nav-link {
+  color: #653d27;
+}
+
+.admin-tabs .nav-link.active {
+  color: #33281f;
+  font-weight: 600;
+}
+
+.admin-table-search {
+  max-width: 26rem;
+}
+
+.admin-status-select {
+  min-width: 10rem;
+}
+
+@media (max-width: 575.98px) {
+  .checkout-progress-label,
+  .checkout-progress-link {
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+  }
+}

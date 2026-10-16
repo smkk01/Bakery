@@ -1,0 +1,12 @@
+[
+  {
+    "fullName": "Alex Baker",
+    "email": "alex@example.com",
+    "phone": "\u002B15551234567",
+    "passwordHash": "pbkdf2-sha256$310000$Otf1TfX2e\u002Bd7fqgrZRkllg==$hRIV66NW5s859JuHb47HbsQDbr\u002BYh9T0y5HVv7sg9lo=",
+    "role": 0,
+    "id": "a2b6508e-6ad7-4f0e-9c03-c17255c0266d",
+    "createdAtUtc": "2026-10-16T08:03:11.1458797Z",
+    "updatedAtUtc": "2026-10-16T08:03:11.1458802Z"
+  }
+]

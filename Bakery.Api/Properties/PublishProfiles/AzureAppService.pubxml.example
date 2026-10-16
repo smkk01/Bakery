@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <WebPublishMethod>ZipDeploy</WebPublishMethod>
+    <PublishProvider>AzureWebSite</PublishProvider>
+    <WebAppName>YOUR-APP-SERVICE-NAME</WebAppName>
+    <ResourceGroup>YOUR-RESOURCE-GROUP</ResourceGroup>
+    <PublishUrl>https://YOUR-APP-SERVICE-NAME.scm.azurewebsites.net</PublishUrl>
+    <LaunchSiteAfterPublish>false</LaunchSiteAfterPublish>
+    <DeleteExistingFiles>false</DeleteExistingFiles>
+    <Configuration>Release</Configuration>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+</Project>

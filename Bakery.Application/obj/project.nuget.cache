@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "yZeE3PQznww=",
+  "success": true,
+  "projectFilePath": "C:\\udemy\\Bakery\\Bakery.Application\\Bakery.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sumon\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\sumon\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
