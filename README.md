@@ -87,7 +87,7 @@ Serilog writes structured logs to the console, which integrates with Azure App S
    
    Add secrets through App Service settings or Key Vault references, never source files. App Service application settings are exposed to .NET configuration with `__` representing `:`. Remove `AdminPromotion__Email` after promotion and restart the app.
 3. Save settings and restart the App Service. Check `https://YOUR-APP.azurewebsites.net/health` for `Healthy`. Review **Log stream** or Azure Monitor if startup fails; missing production JWT signing keys and incomplete bootstrap-admin settings intentionally fail startup.
-4. Configure GitHub repository secrets `AZURE_WEBAPP_NAME` (the App Service name) and `AZURE_WEBAPP_PUBLISH_PROFILE` (the full XML publishing profile downloaded from App Service **Get publish profile**).
+4. Configure secrets for the GitHub `production` environment (or repository secrets) `AZURE_WEBAPP_NAME` (the App Service name) and `AZURE_WEBAPP_PUBLISH_PROFILE` (the complete XML file downloaded from the target App Service's **Get publish profile** action). The deployment workflow uses this publish profile directly, so it does not need a separate `azure/login` step. Do not paste the XML into workflow files or logs.
 5. Push to `main` or run **Actions > Build and deploy Bakery API > Run workflow**. [.github/workflows/azure-webapp.yml](.github/workflows/azure-webapp.yml) restores, builds, tests, publishes the API, and deploys the publish output with `azure/webapps-deploy`.
 6. After deployment, test `/health`, `/swagger` (disabled unless enabled in settings), and the authentication endpoints. Deploy a managed database before adding multiple App Service instances or requiring durable transactional storage.
 
