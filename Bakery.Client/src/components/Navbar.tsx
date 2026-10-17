@@ -26,13 +26,23 @@ export function Navbar() {
           <div className="navbar-nav ms-auto align-items-lg-center gap-lg-3">
             <NavLink className="nav-link" onClick={() => setIsMenuOpen(false)} to="/products">Products</NavLink>
             {user?.role === 'Admin' && (
-              <NavLink className="nav-link" onClick={() => setIsMenuOpen(false)} to="/admin">Admin</NavLink>
+              <NavLink className="nav-link d-lg-none" onClick={() => setIsMenuOpen(false)} to="/admin">Admin dashboard</NavLink>
             )}
             {!user && (
               <NavLink className="btn btn-dark btn-sm px-3" onClick={() => setIsMenuOpen(false)} to="/login">Sign in</NavLink>
             )}
           </div>
         </div>
+        {user?.role === 'Admin' && (
+          <NavLink
+            aria-label="Open admin dashboard"
+            className="btn btn-dark btn-sm ms-2 d-none d-lg-inline-flex"
+            onClick={() => setIsMenuOpen(false)}
+            to="/admin"
+          >
+            Admin dashboard
+          </NavLink>
+        )}
         {user && (
           <button
             aria-label={`Sign out ${user.fullName}`}
