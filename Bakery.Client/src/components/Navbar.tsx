@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { SignOutToast } from './SignOutToast'
 import { useAuth } from '../contexts/AuthContext'
 
 export function Navbar() {
   const { user, signOut } = useAuth()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSignOutNotificationVisible, setIsSignOutNotificationVisible] = useState(false)
 
   return (
     <header className="border-bottom bg-white">
@@ -38,6 +40,7 @@ export function Navbar() {
             onClick={() => {
               signOut()
               setIsMenuOpen(false)
+              setIsSignOutNotificationVisible(true)
             }}
             type="button"
           >
@@ -53,6 +56,9 @@ export function Navbar() {
           Cart
         </NavLink>
       </nav>
+      {isSignOutNotificationVisible && (
+        <SignOutToast onDismiss={() => setIsSignOutNotificationVisible(false)} />
+      )}
     </header>
   )
 }
