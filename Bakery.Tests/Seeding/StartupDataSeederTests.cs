@@ -68,7 +68,7 @@ public sealed class StartupDataSeederTests
     }
 
     [Fact]
-    public async Task SeedAsync_WhenCategoriesExist_SkipsCategorySeedingAndUsesMatchingCategories()
+    public async Task SeedAsync_WhenCategoriesExist_AddsMissingCategoriesAndProducts()
     {
         var databaseDirectory = CreateDatabaseDirectory();
         try
@@ -92,9 +92,11 @@ public sealed class StartupDataSeederTests
 
             var categories = await categoryRepository.GetAllAsync();
             var products = await productRepository.GetAllAsync();
-            Assert.Single(categories);
-            Assert.Equal(3, products.Count);
-            Assert.All(products, product => Assert.Equal(existingCategory.Id, product.CategoryId));
+            Assert.Equal(5, categories.Count);
+            Assert.Equal(15, products.Count);
+            Assert.Contains(categories, category => category.Id == existingCategory.Id);
+            Assert.All(products, product => Assert.Contains(categories, category => category.Id == product.CategoryId));
+            Assert.Equal(3, products.Count(product => product.CategoryId == existingCategory.Id));
         }
         finally
         {
@@ -103,7 +105,7 @@ public sealed class StartupDataSeederTests
     }
 
     [Fact]
-    public async Task SeedAsync_WhenProductsExist_SkipsProductSeeding()
+    public async Task SeedAsync_WhenProductsExist_PreservesExistingProductAndAddsMissingSeedProducts()
     {
         var databaseDirectory = CreateDatabaseDirectory();
         try
@@ -128,8 +130,50 @@ public sealed class StartupDataSeederTests
 
             Assert.Equal(5, (await categoryRepository.GetAllAsync()).Count);
             var products = await productRepository.GetAllAsync();
-            Assert.Single(products);
-            Assert.Equal(existingProduct.Id, products[0].Id);
+            Assert.Equal(16, products.Count);
+            Assert.Contains(products, product =>
+                product.Id == existingProduct.Id &&
+                product.Name == existingProduct.Name &&
+                product.Description == existingProduct.Description);
+            Assert.Equal(15, products.Count(product => product.Id != existingProduct.Id));
+            Assert.All(
+                products.Where(product => product.Id != existingProduct.Id),
+                product => Assert.False(string.IsNullOrWhiteSpace(product.ImageUrl)));
+        }
+        finally
+        {
+            Directory.Delete(databaseDirectory, recursive: true);
+        }
+    }
+
+    [Fact]
+    public async Task SeedAsync_WhenPluralBreadCategoryExists_UsesItWithoutAddingDuplicateCategory()
+    {
+        var databaseDirectory = CreateDatabaseDirectory();
+        try
+        {
+            var database = CreateDatabase(databaseDirectory);
+            var breadCategory = new Category
+            {
+                Id = Guid.NewGuid(),
+                Name = "Breads",
+                Description = "Existing bread category"
+            };
+            await database.WriteAsync("categories.json", new List<Category> { breadCategory });
+            var categoryRepository = new JsonCategoryRepository(database);
+            var productRepository = new JsonProductRepository(database);
+            var seeder = new StartupDataSeeder(
+                categoryRepository,
+                productRepository,
+                NullLogger<StartupDataSeeder>.Instance);
+
+            await seeder.SeedAsync();
+
+            var categories = await categoryRepository.GetAllAsync();
+            var products = await productRepository.GetAllAsync();
+            Assert.Equal(5, categories.Count);
+            Assert.Contains(categories, category => category.Id == breadCategory.Id);
+            Assert.Equal(3, products.Count(product => product.CategoryId == breadCategory.Id));
         }
         finally
         {
