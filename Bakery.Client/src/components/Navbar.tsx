@@ -26,15 +26,24 @@ export function Navbar() {
             {user?.role === 'Admin' && (
               <NavLink className="nav-link" onClick={() => setIsMenuOpen(false)} to="/admin">Admin</NavLink>
             )}
-            {user ? (
-              <button className="btn btn-outline-dark btn-sm" onClick={() => { signOut(); setIsMenuOpen(false) }} type="button">
-                Sign out
-              </button>
-            ) : (
+            {!user && (
               <NavLink className="btn btn-dark btn-sm px-3" onClick={() => setIsMenuOpen(false)} to="/login">Sign in</NavLink>
             )}
           </div>
         </div>
+        {user && (
+          <button
+            aria-label={`Sign out ${user.fullName}`}
+            className="btn btn-outline-dark btn-sm ms-2"
+            onClick={() => {
+              signOut()
+              setIsMenuOpen(false)
+            }}
+            type="button"
+          >
+            Sign out
+          </button>
+        )}
         <NavLink
           aria-label="View shopping cart"
           className={({ isActive }) => `btn btn-sm ms-2${isActive ? ' btn-dark' : ' btn-outline-dark'}`}
