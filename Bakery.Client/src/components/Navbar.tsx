@@ -30,49 +30,51 @@ export function Navbar() {
             )}
           </div>
         </div>
-        <NavLink
-          aria-label="View shopping cart"
-          className={({ isActive }) => `btn btn-sm ms-2${isActive ? ' btn-dark' : ' btn-outline-dark'}`}
-          onClick={() => setIsMenuOpen(false)}
-          to="/cart"
-        >
-          Cart
-        </NavLink>
-      </nav>
-      {user && (
-        <div className="container pb-3">
-          <div className="account-toolbar">
-            <div className="account-toolbar-identity" aria-label={`Signed in as ${user.fullName}, ${user.role}`}>
-              <span className="text-secondary">Signed in as</span>{' '}
-              <strong>{user.fullName}</strong>{' '}
-              <span className="badge rounded-pill text-bg-secondary">{user.role}</span>
-            </div>
-            <div className="account-toolbar-actions">
-              {user.role === 'Admin' && (
-                <NavLink
-                  className="btn btn-dark btn-sm"
-                  onClick={() => setIsMenuOpen(false)}
-                  to="/admin"
-                >
-                  Admin dashboard
-                </NavLink>
-              )}
-              <button
-                aria-label={`Sign out ${user.fullName}`}
-                className="btn btn-outline-dark btn-sm"
-                onClick={() => {
-                  signOut()
-                  setIsMenuOpen(false)
-                  setIsSignOutNotificationVisible(true)
-                }}
-                type="button"
+        <div className="navbar-account-actions">
+          <div className="navbar-user-cart">
+            {user && (
+              <span
+                aria-label={`Signed in as ${user.fullName}`}
+                className="navbar-user-name"
+                title={`Signed in as ${user.fullName}`}
               >
-                Sign out
-              </button>
-            </div>
+                {user.fullName}
+              </span>
+            )}
+            <NavLink
+              aria-label="View shopping cart"
+              className={({ isActive }) => `btn btn-sm${isActive ? ' btn-dark' : ' btn-outline-dark'}`}
+              onClick={() => setIsMenuOpen(false)}
+              to="/cart"
+            >
+              Cart
+            </NavLink>
           </div>
+          {user?.role === 'Admin' && (
+            <NavLink
+              className="btn btn-dark btn-sm"
+              onClick={() => setIsMenuOpen(false)}
+              to="/admin"
+            >
+              Admin dashboard
+            </NavLink>
+          )}
+          {user && (
+            <button
+              aria-label={`Sign out ${user.fullName}`}
+              className="btn btn-outline-dark btn-sm"
+              onClick={() => {
+                signOut()
+                setIsMenuOpen(false)
+                setIsSignOutNotificationVisible(true)
+              }}
+              type="button"
+            >
+              Sign out
+            </button>
+          )}
         </div>
-      )}
+      </nav>
       {isSignOutNotificationVisible && (
         <SignOutToast onDismiss={() => setIsSignOutNotificationVisible(false)} />
       )}

@@ -63,27 +63,27 @@ a {
   margin: 0;
 }
 
-.account-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.7rem 0.85rem;
-  border-radius: 0.75rem;
-  background: #fff5e7;
-}
-
-.account-toolbar-identity {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-.account-toolbar-actions {
+.navbar-account-actions,
+.navbar-user-cart {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
+}
+
+.navbar-account-actions {
+  margin-left: auto;
+}
+
+.navbar-user-name {
+  max-width: 12rem;
+  min-width: 0;
+  overflow: hidden;
+  color: #653d27;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .brand-mark {
@@ -325,6 +325,19 @@ a {
 }
 
 @media (max-width: 575.98px) {
+  .navbar-account-actions {
+    gap: 0.4rem;
+  }
+
+  .navbar-user-cart {
+    gap: 0.4rem;
+  }
+
+  .navbar-user-name {
+    max-width: 7rem;
+    font-size: 0.8rem;
+  }
+
   .checkout-progress-label,
   .checkout-progress-link {
     flex-direction: column;
