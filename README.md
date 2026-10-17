@@ -109,3 +109,7 @@ Serilog writes structured logs to the console, which integrates with Azure App S
 #### Publish profile structure
 
 The checked-in [AzureAppService.pubxml.example](Bakery.Api/Properties/PublishProfiles/AzureAppService.pubxml.example) contains only non-secret placeholders and shows the profile shape for local Visual Studio publishing. The GitHub Actions deployment uses OIDC and does not require a downloaded `.PublishSettings` file or a credential-bearing `.pubxml` file.
+
+
+#### Online Bakery E-commerce
+A full-stack bakery storefront built with React, TypeScript, and ASP.NET Core 8. Customers can browse products, manage a cart, and place orders, while administrators manage the catalog and order statuses. Deployed on Azure with a secure JWT-protected API.
