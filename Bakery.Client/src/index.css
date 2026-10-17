@@ -63,6 +63,29 @@ a {
   margin: 0;
 }
 
+.account-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 0.75rem;
+  background: #fff5e7;
+}
+
+.account-toolbar-identity {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.account-toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .brand-mark {
   color: #653d27;
   font-family: Georgia, "Times New Roman", serif;

@@ -25,38 +25,11 @@ export function Navbar() {
         <div className={`collapse navbar-collapse${isMenuOpen ? ' show' : ''}`} id="main-navigation">
           <div className="navbar-nav ms-auto align-items-lg-center gap-lg-3">
             <NavLink className="nav-link" onClick={() => setIsMenuOpen(false)} to="/products">Products</NavLink>
-            {user?.role === 'Admin' && (
-              <NavLink className="nav-link d-lg-none" onClick={() => setIsMenuOpen(false)} to="/admin">Admin dashboard</NavLink>
-            )}
             {!user && (
               <NavLink className="btn btn-dark btn-sm px-3" onClick={() => setIsMenuOpen(false)} to="/login">Sign in</NavLink>
             )}
           </div>
         </div>
-        {user?.role === 'Admin' && (
-          <NavLink
-            aria-label="Open admin dashboard"
-            className="btn btn-dark btn-sm ms-2 d-none d-lg-inline-flex"
-            onClick={() => setIsMenuOpen(false)}
-            to="/admin"
-          >
-            Admin dashboard
-          </NavLink>
-        )}
-        {user && (
-          <button
-            aria-label={`Sign out ${user.fullName}`}
-            className="btn btn-outline-dark btn-sm ms-2"
-            onClick={() => {
-              signOut()
-              setIsMenuOpen(false)
-              setIsSignOutNotificationVisible(true)
-            }}
-            type="button"
-          >
-            Sign out
-          </button>
-        )}
         <NavLink
           aria-label="View shopping cart"
           className={({ isActive }) => `btn btn-sm ms-2${isActive ? ' btn-dark' : ' btn-outline-dark'}`}
@@ -66,6 +39,40 @@ export function Navbar() {
           Cart
         </NavLink>
       </nav>
+      {user && (
+        <div className="container pb-3">
+          <div className="account-toolbar">
+            <div className="account-toolbar-identity" aria-label={`Signed in as ${user.fullName}, ${user.role}`}>
+              <span className="text-secondary">Signed in as</span>{' '}
+              <strong>{user.fullName}</strong>{' '}
+              <span className="badge rounded-pill text-bg-secondary">{user.role}</span>
+            </div>
+            <div className="account-toolbar-actions">
+              {user.role === 'Admin' && (
+                <NavLink
+                  className="btn btn-dark btn-sm"
+                  onClick={() => setIsMenuOpen(false)}
+                  to="/admin"
+                >
+                  Admin dashboard
+                </NavLink>
+              )}
+              <button
+                aria-label={`Sign out ${user.fullName}`}
+                className="btn btn-outline-dark btn-sm"
+                onClick={() => {
+                  signOut()
+                  setIsMenuOpen(false)
+                  setIsSignOutNotificationVisible(true)
+                }}
+                type="button"
+              >
+                Sign out
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {isSignOutNotificationVisible && (
         <SignOutToast onDismiss={() => setIsSignOutNotificationVisible(false)} />
       )}
