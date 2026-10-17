@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\udemy\\Bakery\\bakery.api\\Bakery.Api.csproj": {}
+    "C:\\udemy\\Bakery\\Bakery.Api\\Bakery.Api.csproj": {}
   },
   "projects": {
-    "C:\\udemy\\Bakery\\bakery.api\\Bakery.Api.csproj": {
+    "C:\\udemy\\Bakery\\Bakery.Api\\Bakery.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\udemy\\Bakery\\bakery.api\\Bakery.Api.csproj",
+        "projectUniqueName": "C:\\udemy\\Bakery\\Bakery.Api\\Bakery.Api.csproj",
         "projectName": "Bakery.Api",
-        "projectPath": "C:\\udemy\\Bakery\\bakery.api\\Bakery.Api.csproj",
+        "projectPath": "C:\\udemy\\Bakery\\Bakery.Api\\Bakery.Api.csproj",
         "packagesPath": "C:\\Users\\sumon\\.nuget\\packages\\",
-        "outputPath": "C:\\udemy\\Bakery\\bakery.api\\obj\\",
+        "outputPath": "C:\\udemy\\Bakery\\Bakery.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

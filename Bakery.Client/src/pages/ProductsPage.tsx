@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import { ProductCard } from '../components/ProductCard'
+import { CartSuccessToast } from '../components/CartSuccessToast'
 import { LoadingSpinner } from '../components/LoadingSpinner'
 import { useAuth } from '../contexts/AuthContext'
 import { addToCart } from '../services/cart'
@@ -14,6 +15,7 @@ export function ProductsPage() {
   const [search, setSearch] = useState('')
   const [categoryId, setCategoryId] = useState('')
   const [sortBy, setSortBy] = useState('featured')
+  const [addedProductName, setAddedProductName] = useState<string | null>(null)
   const { user } = useAuth()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
@@ -29,7 +31,10 @@ export function ProductsPage() {
       }
       return addToCart(user.userId, product.id, 1, user.accessToken)
     },
-    onSuccess: (cart) => queryClient.setQueryData(['cart', cart.customerId], cart),
+    onSuccess: (cart, product) => {
+      queryClient.setQueryData(['cart', cart.customerId], cart)
+      setAddedProductName(product.name)
+    },
   })
 
   const filteredProducts = useMemo(() => {
@@ -143,8 +148,8 @@ export function ProductsPage() {
         {getApiErrorMessage(addMutation.error, 'Could not add this item.')}
       </div>
       )}
-      {addMutation.isSuccess && (
-      <div className="alert alert-success mt-4" role="status">Added to your basket.</div>
+      {addedProductName && (
+        <CartSuccessToast onDismiss={() => setAddedProductName(null)} productName={addedProductName} />
       )}
     </section>
   )

@@ -24,6 +24,44 @@ a {
   color: inherit;
 }
 
+.btn-dark {
+  --bs-btn-bg: #7a4b2a;
+  --bs-btn-border-color: #7a4b2a;
+  --bs-btn-hover-bg: #5c351c;
+  --bs-btn-hover-border-color: #5c351c;
+  --bs-btn-focus-shadow-rgb: 122, 75, 42;
+  --bs-btn-active-bg: #4b2b17;
+  --bs-btn-active-border-color: #4b2b17;
+  --bs-btn-disabled-bg: #7a4b2a;
+  --bs-btn-disabled-border-color: #7a4b2a;
+}
+
+.btn-outline-dark {
+  --bs-btn-color: #7a4b2a;
+  --bs-btn-border-color: #7a4b2a;
+  --bs-btn-hover-color: #5c351c;
+  --bs-btn-hover-bg: #f3e5d8;
+  --bs-btn-hover-border-color: #7a4b2a;
+  --bs-btn-focus-shadow-rgb: 122, 75, 42;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #7a4b2a;
+  --bs-btn-active-border-color: #7a4b2a;
+  --bs-btn-disabled-color: #7a4b2a;
+  --bs-btn-disabled-border-color: #7a4b2a;
+}
+
+.cart-success-toast {
+  position: fixed;
+  z-index: 1080;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: min(26rem, calc(100vw - 2rem));
+  margin: 0;
+}
+
 .brand-mark {
   color: #653d27;
   font-family: Georgia, "Times New Roman", serif;

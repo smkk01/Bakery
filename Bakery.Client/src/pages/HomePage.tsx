@@ -1,6 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import { ProductCard } from '../components/ProductCard'
+import { CartSuccessToast } from '../components/CartSuccessToast'
 import { LoadingSpinner } from '../components/LoadingSpinner'
 import { useAuth } from '../contexts/AuthContext'
 import { useProducts } from '../hooks/useProducts'
@@ -12,6 +14,7 @@ export function HomePage() {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const productsQuery = useProducts()
+  const [addedProductName, setAddedProductName] = useState<string | null>(null)
   const addMutation = useMutation({
     mutationFn: (product: Product) => {
       if (!user) {
@@ -22,8 +25,9 @@ export function HomePage() {
       }
       return addToCart(user.userId, product.id, 1, user.accessToken)
     },
-    onSuccess: (cart) => {
+    onSuccess: (cart, product) => {
       queryClient.setQueryData(['cart', cart.customerId], cart)
+      setAddedProductName(product.name)
     },
   })
 
@@ -91,10 +95,10 @@ export function HomePage() {
             )}
           </div>
         )}
-        {addMutation.isSuccess && (
-          <div className="alert alert-success mt-4" role="status">Added to your basket.</div>
-        )}
       </section>
+      {addedProductName && (
+        <CartSuccessToast onDismiss={() => setAddedProductName(null)} productName={addedProductName} />
+      )}
     </>
   )
 }

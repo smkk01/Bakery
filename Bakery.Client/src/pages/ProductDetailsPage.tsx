@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useMemo, useState } from 'react'
 import { LoadingSpinner } from '../components/LoadingSpinner'
+import { CartSuccessToast } from '../components/CartSuccessToast'
 import { useAuth } from '../contexts/AuthContext'
 import { addToCart } from '../services/cart'
 import { getProduct } from '../services/products'
@@ -15,6 +16,7 @@ export function ProductDetailsPage() {
   const [imageFailed, setImageFailed] = useState(false)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [quantity, setQuantity] = useState(1)
+  const [addedProductName, setAddedProductName] = useState<string | null>(null)
   const productQuery = useQuery({
     queryKey: ['products', id],
     queryFn: () => getProduct(id),
@@ -45,7 +47,10 @@ export function ProductDetailsPage() {
       }
       return addToCart(user.userId, productQuery.data.id, quantity, user.accessToken)
     },
-    onSuccess: (cart) => queryClient.setQueryData(['cart', cart.customerId], cart),
+    onSuccess: (cart) => {
+      queryClient.setQueryData(['cart', cart.customerId], cart)
+      setAddedProductName(productQuery.data?.name ?? 'Item')
+    },
   })
 
   if (productQuery.isPending) {
@@ -168,13 +173,11 @@ export function ProductDetailsPage() {
               {getApiErrorMessage(addMutation.error, 'Could not add this item.')}
             </div>
           )}
-          {addMutation.isSuccess && (
-            <div className="alert alert-success mt-3" role="status">
-              Added to your basket. <Link to="/cart">View basket</Link>
-            </div>
-          )}
         </div>
       </div>
+      {addedProductName && (
+        <CartSuccessToast onDismiss={() => setAddedProductName(null)} productName={addedProductName} />
+      )}
     </section>
   )
 }
